@@ -1,4 +1,4 @@
-package com.example.supermart.frameworks.db
+package com.example.supermart.frameworks.persistance.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

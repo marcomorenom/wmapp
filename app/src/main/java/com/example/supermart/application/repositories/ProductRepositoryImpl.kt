@@ -11,7 +11,14 @@ class ProductRepositoryImpl @Inject constructor(
     ) : ProductRepository {
 
     override suspend fun getProducts(): ProductResponseDTO {
-        return retrofit.create(ProductsService::class.java).getProducts()
+        // Create a repository handle
+        return try {
+            val response = retrofit.create(ProductsService::class.java).getProducts()
+            response
+        }catch (e: Exception){
+            e.printStackTrace()
+            return ProductResponseDTO()
+        }
     }
 
 }

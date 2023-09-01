@@ -2,7 +2,7 @@ package com.example.supermart.frameworks.persistance
 
 import com.example.supermart.application.contracts.DataSource
 import com.example.supermart.domain.entities.ProductEntity
-import com.example.supermart.frameworks.db.DataBase
+import com.example.supermart.frameworks.persistance.db.DataBase
 import javax.inject.Inject
 
 class DataSourceImpl @Inject constructor(

@@ -2,8 +2,8 @@ package com.example.supermart.frameworks.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.supermart.frameworks.db.DATABASE_NAME
-import com.example.supermart.frameworks.db.DataBase
+import com.example.supermart.frameworks.persistance.db.DATABASE_NAME
+import com.example.supermart.frameworks.persistance.db.DataBase
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
