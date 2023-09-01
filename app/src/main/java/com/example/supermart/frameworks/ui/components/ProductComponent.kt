@@ -29,17 +29,17 @@ fun ProductComponent(
                 .padding(16.dp)
         ) {
             Text(
-                text = "Name: $name",
+                text = "Product name: $name",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(bottom = 4.dp)
             )
             Text(
-                text = "Cost: $cost",
+                text = "Product cost: $$cost",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(bottom = 4.dp)
             )
             Text(
-                text = "ID: $id",
+                text = "Product ID: $id",
                 style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.padding(bottom = 4.dp)
             )
