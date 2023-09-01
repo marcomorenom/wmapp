@@ -1,6 +1,7 @@
 package com.example.supermart.frameworks.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.supermart.application.viewModels.ProductListViewModel
 import com.example.supermart.domain.entities.ProductEntity
+import com.example.supermart.frameworks.ui.components.LoaderComponent
 import com.example.supermart.frameworks.ui.components.ProductComponent
 
 
@@ -29,23 +31,26 @@ fun ProductListScreen(
         // handle reactive observers
     }
 
-    Column(
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        LazyColumn(
+    Box(   modifier = Modifier.fillMaxSize()) {
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxSize()
         ) {
-            dynamicSectionsState.value.forEach { product ->
-                item {
-                    ProductComponent(
-                        name = product.name,
-                        cost = product.cost,
-                        id = product.id,
-                    )
+            LazyColumn(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                dynamicSectionsState.value.forEach { product ->
+                    item {
+                        ProductComponent(
+                            name = product.name,
+                            cost = product.cost,
+                            id = product.id,
+                        )
+                    }
                 }
             }
         }
+        LoaderComponent()
     }
 }
