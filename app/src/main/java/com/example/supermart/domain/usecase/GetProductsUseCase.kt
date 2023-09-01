@@ -20,9 +20,7 @@ class GetProductsUseCase @Inject constructor(
     ) = flow {
         val products = when(loadStrategy){
             is Default -> {
-                if (getProductsOffline().isEmpty()) {
-                    getProductsOnline()
-                } else {
+                getProductsOffline().ifEmpty {
                     getProductsOnline()
                 }
             }
@@ -36,7 +34,9 @@ class GetProductsUseCase @Inject constructor(
 
     private suspend fun getProductsOnline(): List<ProductEntity> {
         Log.d(TAG, "getProductsOnline")
-        return repository.getProducts().products
+        val response = repository.getProducts()
+        localDataSource.saveProducts(response.products)
+        return response.products
     }
 
     private suspend fun getProductsOffline(): List<ProductEntity> {
